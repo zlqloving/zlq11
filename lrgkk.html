@@ -1,0 +1,156 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>无标题文档</title>
+		<link href="css/style.css" rel="stylesheet" type="text/css" />
+		<link href="css/select.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/jquery.idTabs.min.js"></script>
+		<script type="text/javascript" src="js/select-ui.min.js"></script>
+		<script type="text/javascript" src="editor/kindeditor.js"></script>
+
+		<script type="text/javascript">
+			KE.show({
+				id: 'content7',
+				cssPath: './index.css'
+			});
+		</script>
+
+		<script type="text/javascript">
+			$(document).ready(function(e) {
+				$(".select1").uedSelect({
+					width: 345
+				});
+				$(".select2").uedSelect({
+					width: 167
+				});
+				$(".select3").uedSelect({
+					width: 100
+				});
+			});
+		</script>
+		
+		<script>
+			function checkRealname() {
+				var urname = document.getElementById("realname").value;
+				var urnameTip = document.getElementById("realnameTip");
+				var reg = /^[\u4e00-\u9fa5]{2,4}$/;
+				if(!reg.test(urname)) {
+					urnameTip.innerHTML="主讲人不合法！";
+					urnameTip.style="color:red";
+				} else {
+					urnameTip.innerHTML="";
+				}
+			}
+			
+			function checkTopic() {
+				var utopic = document.getElementById("topic").value;
+				var utopicTip = document.getElementById("topicTip");
+				var reg = /^[\u4e00-\u9fa5 a-z A-Z]{1,50}$/;
+				if(!reg.test(utopic)) {
+					utopicTip.innerHTML="技术专题不合法！";
+					utopicTip.style="color:red";
+				} else {
+					utopicTip.innerHTML="";
+				}
+			}
+			
+			function checkPhone1() {
+				var uphonenum1 = document.getElementById("phonenum1").value;
+				var uphonenum1Tip = document.getElementById("phonenum1Tip");
+				var reg = /^[0-9]{11}$/;
+				if(!reg.test(uphonenum1)) {
+					uphonenum1Tip.innerHTML="电话号不合法！";
+					uphonenum1Tip.style="color:red";
+				} else {
+					uphonenum1Tip.innerHTML="";
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+
+		<div class="place">
+			<span>位置：</span>
+			<ul class="placeul">
+				<li>
+					<a href="#">首页</a>
+				</li>
+				<li>
+					<a href="#">录入公开课</a>
+				</li>
+			</ul>
+		</div>
+
+		<div class="formbody">
+
+			<div id="tab1" class="tabson">
+				<ul class="forminfo">
+					<li><label>日期<b>*</b></label>
+						<input name="Input" type="date" class="dfinput" style="width:345px;" />
+					</li>
+					
+					<li><label>技术专题<b>*</b></label>
+						<input placeholder="字母和汉字组合，1-50 个字符" id="topic" onblur="checkTopic()" name="Input" type="text" class="dfinput" style="width:345px;" />
+						<i id="topicTip"></i>
+					</li>
+					<li>
+						<label>主讲人<b>*</b></label>
+						<input id="realname" onblur="checkRealname()" placeholder="2-4个汉字" name="classid" type="text" class="dfinput" style="width:345px;" />
+						<i id="realnameTip"></i>
+					</li>
+					<li>
+						<label>组织人<b>*</b></label>
+						<input placeholder="学生和UOLab老师" name="classid" type="text" class="dfinput" style="width:345px;" />
+					</li>
+					<li>
+						<label>地点<b>*</b></label>
+						<input placeholder="请输入地点" name="classid" type="text" class="dfinput" style="width:345px;" />
+					</li>
+					<li>
+						<label>群体说明<b>*</b></label>
+						<input placeholder="群体说明" name="classid" type="text" class="dfinput" style="width:345px;" />
+					</li>
+					<li>
+						<label>方式<b>*</b></label><cite>
+							<input name="sex1" type="radio" value="" checked="checked" />线下&nbsp;&nbsp;&nbsp;&nbsp;
+							<input name="sex1" type="radio" value=""  />直播&nbsp;&nbsp;&nbsp;&nbsp;
+							<input name="sex1" type="radio" value="" />录播</cite>
+					</li>
+					<li>
+						<label>创新学分值<b>*</b></label>
+						<input placeholder="请输入创新学分值" name="classid" type="text" class="dfinput" style="width:345px;" />
+					</li>
+					<li>
+						<label>参加人数<b>*</b></label>
+						<input placeholder="请输入参加人数" name="classid" type="text" class="dfinput" style="width:345px;" />
+					</li>
+					
+					
+					
+					<li><label>备注<b style="color: black;">*</b></label>
+
+						<textarea id="content7" name="content" style="width:700px;height:250px;visibility:hidden;"></textarea>
+					</li>
+					<li><label>&nbsp;</label><input name="" type="button" class="btn" value="保存" /></li>
+				</ul>
+
+			</div>
+
+			<script type="text/javascript">
+				$("#usual1 ul").idTabs();
+			</script>
+
+			<script type="text/javascript">
+				$('.tablelist tbody tr:odd').addClass('odd');
+			</script>
+
+		</div>
+
+	</body>
+
+</html>
